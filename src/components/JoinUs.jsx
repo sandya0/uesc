@@ -55,6 +55,7 @@ const JoinUs = () => {
 
     return (
     <section
+        id="contact"
         ref={sectionRef}
         className="min-h-screen w-full text-black flex items-center justify-center p-6 overflow-hidden"
     >

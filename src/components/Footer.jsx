@@ -1,30 +1,68 @@
-import React from 'react';
+import React, { useEffect, useRef } from 'react';
+import { gsap } from "gsap";
 
 const Footer = () => {
   const navLinks = [
-    "Home",
-    "Featured",
-    "Debate",
-    "Scrabble",
-    "MUN",
-    "Speech",
-    "Contact",
-    "Instagram",
+    { name: "Home", href: "#hero" },
+    { name: "Featured", href: "#about-us" },
+    { name: "Debate", href: "#debate-activities" },
+    { name: "Scrabble", href: "#scrabble-activities" },
+    { name: "MUN", href: "#MUN-activities" },
+    { name: "Speech", href: "#Speech-activities" },
   ];
 
+  const footerRef = useRef(null);
+
+  useEffect(() => {
+    const slotLinks = footerRef.current.querySelectorAll(".slot-link");
+
+    const listeners = [];
+    slotLinks.forEach((linkWrapper) => {
+      const innerWrapper = linkWrapper.querySelector(".inner-wrapper");
+
+      const handleEnter = () => {
+        gsap.to(innerWrapper, {
+          y: "-100%",
+          duration: 0.3,
+          ease: "power2.inOut",
+        });
+      };
+
+      const handleLeave = () => {
+        gsap.to(innerWrapper, {
+          y: "0%",
+          duration: 0.3,
+          ease: "power2.inOut",
+        });
+      };
+
+      linkWrapper.addEventListener("mouseenter", handleEnter);
+      linkWrapper.addEventListener("mouseleave", handleLeave);
+
+      listeners.push({ el: linkWrapper, enter: handleEnter, leave: handleLeave });
+    });
+
+    return () => {
+      listeners.forEach(({ el, enter, leave }) => {
+        el.removeEventListener("mouseenter", enter);
+        el.removeEventListener("mouseleave", leave);
+      });
+    };
+  }, []);
+
   return (
-    <footer className="bg-white text-black py-16 px-8 lg:px-20 font-sans">
+    <footer className="text-black font-sans" ref={footerRef}>
       <div className="container mx-auto">
         {/* Main content grid */}
         <div className="grid grid-cols-1 md:grid-cols-12 gap-12">
           
           {/* Left Section: Image and Logo */}
           <div className="md:col-span-4">
-            <div className="w-full h-64 mb-8 overflow-hidden rounded-lg">
+            <div className="w-full mb-8 overflow-hidden rounded-lg">
               <img 
-                src="https://placehold.co/600x400/f5f5f5/000000?text=Image" 
+                src="/images/footer.JPG"
                 alt="UESC Event" 
-                className="w-full h-full object-cover"
+                className="w-full h-[500px] object-cover"
               />
             </div>
             <h2 className="text-8xl font-bold">UESC</h2>
@@ -34,8 +72,15 @@ const Footer = () => {
           <div className="md:col-span-4">
             <ul className="space-y-2">
               {navLinks.map((link) => (
-                <li key={link}>
-                  <a href="#" className="hover:underline text-2xl font-bold">{link}</a>
+                <li key={link.name}>
+                  <a href={link.href} className="text-2xl font-bold">
+                    <span className="slot-link relative h-[1.2em] overflow-hidden block cursor-pointer">
+                      <span className="inner-wrapper block relative">
+                        <span className="inner-text block">{link.name}</span>
+                        <span className="inner-text block absolute top-full">{link.name}</span>
+                      </span>
+                    </span>
+                  </a>
                 </li>
               ))}
             </ul>
@@ -44,28 +89,31 @@ const Footer = () => {
           {/* Right Section: Contact Info */}
           <div className="md:col-span-4 text-left">
             <div>
-              <h3 className="font-bold text-lg">UMN English Student Council (UESC)</h3>
-              <p className="text-gray-600 mb-4">Empowering Voices, Building Confidence, Creating Community</p>
-              
-              <h3 className="font-bold text-lg mt-6">Universitas Multimedia Nusantara</h3>
-              <p className="text-gray-600">
-                Jl. Boulevard Raya, Gading Serpong, Tangerang, Banten – Indonesia
+              <p className="mb-4">UMN English Student Council (UESC) Empowering Voices, Building Confidence, Creating Community</p>
+              <p>
+                Universitas Multimedia Nusantara Jl. Boulevard Raya, Gading Serpong, Tangerang, Banten – Indonesia
               </p>
-
               <div className="mt-6">
-                <a href="mailto:uesc@umn.ac.id" className="block hover:underline text-gray-600">uesc@umn.ac.id</a>
-                <a href="#" className="block hover:underline text-gray-600">@umn_uesc</a>
+                <a href="mailto:uesc@umn.ac.id" className="block hover:underline">uesc@umn.ac.id</a>
+                <a href="https://www.instagram.com/umn_uesc" target="_blank" rel="noopener noreferrer" className="block hover:underline">@umn_uesc</a>
               </div>
             </div>
           </div>
         </div>
 
         {/* Bottom row for copyright and credits */}
-        <div className="flex justify-between items-center mt-16 pt-8 border-t border-gray-200 text-sm">
-          <p className="text-gray-600">
+        <div className="flex justify-between items-center mt-16 pt-8 border-t border-gray-200 text-xl font-bold">
+          <p>
             © 2025 UMN English Student Council. All Rights Reserved.
           </p>
-          <a href="#" className="hover:underline">Instagram</a>
+          <a href="https://www.instagram.com/umn_uesc" target="_blank" rel="noopener noreferrer">
+            <span className="slot-link relative h-[1.2em] overflow-hidden block cursor-pointer">
+              <span className="inner-wrapper block relative">
+                <span className="inner-text block">Instagram</span>
+                <span className="inner-text block absolute top-full">Instagram</span>
+              </span>
+            </span>
+          </a>
           <p>Made by Sandya</p>
         </div>
       </div>

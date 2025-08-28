@@ -7,6 +7,7 @@ import MUN from './components/MUN'
 import Speech from './components/Speech'
 import JoinUs from './components/JoinUs'
 import Slogan from './components/Slogan'
+import Footer from './components/Footer'
 
 const App = () => {
   return (
@@ -19,6 +20,7 @@ const App = () => {
       <Speech />
       <JoinUs />
       <Slogan />
+      <Footer />
     </main>
   )
 }
