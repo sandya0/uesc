@@ -5,6 +5,7 @@ const App = () => {
   return (
     <main>
       <Hero />
+      <section className='h-screen w-full'/>
     </main>
   )
 }
