@@ -6,6 +6,7 @@ import Scrabble from './components/Scrabble'
 import MUN from './components/MUN'
 import Speech from './components/Speech'
 import JoinUs from './components/JoinUs'
+import Slogan from './components/Slogan'
 
 const App = () => {
   return (
@@ -17,6 +18,7 @@ const App = () => {
       <MUN />
       <Speech />
       <JoinUs />
+      <Slogan />
     </main>
   )
 }

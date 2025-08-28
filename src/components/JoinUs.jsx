@@ -53,39 +53,47 @@ const JoinUs = () => {
     return () => ctx.revert();
   }, []); // Empty dependency array ensures this effect runs only once on mount
 
-  return (
+    return (
     <section
-      ref={sectionRef}
-      className="min-h-screen w-full text-black flex items-center justify-center p-6 overflow-hidden"
+        ref={sectionRef}
+        className="min-h-screen w-full text-black flex items-center justify-center p-6 overflow-hidden"
     >
-      <div className="container mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-24 items-center">
+        <div className="container mx-auto grid grid-cols-1 lg:grid-cols-[1fr_2fr] gap-12 items-start">
         {/* Image Content - Now on the left for desktop */}
-        <div ref={imageRef} className="w-full flex justify-center lg:justify-start">
-          <img
-            src="https://storage.googleapis.com/gemini-prod/images/image_ccd951.png"
+        <div ref={imageRef} className="w-full flex justify-start items-start">
+            <img
+            src="/images/join.JPG"
             alt="UESC Group Photo"
-            className="rounded-lg shadow-2xl object-cover w-full max-w-lg h-auto"
+            className="rounded-lg shadow-2xl object-cover w-full max-w-lg h-[530px]"
             onError={(e) => {
-              // Fallback in case the image fails to load
-              e.target.onerror = null;
-              e.target.src = "https://placehold.co/600x400/e2e8f0/a0aec0?text=Image+Not+Found";
+                e.target.onerror = null;
+                e.target.src =
+                "https://placehold.co/600x400/e2e8f0/a0aec0?text=Image+Not+Found";
             }}
-          />
+            />
         </div>
 
         {/* Text Content - Now on the right for desktop */}
-        <div ref={textContentRef} className="flex flex-col items-start text-left">
-          <p ref={paragraphRef} className="text-3xl sm:text-4xl lg:text-5xl font-bold leading-tight">
+        <div
+            ref={textContentRef}
+            className="flex flex-col items-start text-left justify-center"
+        >
+            <p
+            ref={paragraphRef}
+            className="text-3xl sm:text-4xl lg:text-6xl font-bold leading-tight"
+            >
             At UESC, you can improve your English skills in a supportive
             environment, gain valuable experience in public speaking and
             debating, connect with like-minded peers and mentors, and unlock
-            leadership opportunities for personal growth—all while being part
-            of UMN's vibrant student community.
-          </p>
+            leadership opportunities for personal growth—all while being part of
+            UMN's vibrant student community.
+            </p>
         </div>
-      </div>
+        </div>
     </section>
-  );
+    );
+
+
 };
 
 export default JoinUs;
