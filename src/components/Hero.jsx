@@ -140,13 +140,14 @@ const Hero = () => {
     <section
       id="hero"
       ref={heroRef}
-      className="relative h-screen w-full bg-cover bg-center flex items-center justify-center overflow-hidden"
+      className="relative h-screen w-full bg-cover bg-center flex items-center justify-center overflow-hidden bg-[#f5f5f5]"
       style={{
         backgroundImage: `url('/images/hero.JPG')`,
         backgroundAttachment: "scroll",
-        backgroundPosition: "center center", // keep centered
+        backgroundPosition: "center center",
       }}
     >
+
       {/* Overlay */}
       <div className="overlay absolute inset-0 bg-black/40"></div>
 
