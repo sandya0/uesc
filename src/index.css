@@ -19,3 +19,15 @@ html {
 body{
   background-color: #f5f5f5;
 }
+
+/* Ensure smooth scrolling and prevent scroll during loading */
+html, body {
+  scroll-behavior: smooth;
+}
+
+/* When loading, prevent any scrolling */
+body.loading {
+  overflow: hidden !important;
+  position: fixed;
+  width: 100%;
+}

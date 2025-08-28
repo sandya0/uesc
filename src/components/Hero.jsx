@@ -4,13 +4,16 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 
 gsap.registerPlugin(ScrollTrigger);
 
-const Hero = () => {
+const Hero = ({ isLoading = false }) => {
   const heroRef = useRef(null);
   const topNavRef = useRef(null);
   const centerLinksRef = useRef(null);
   const bottomDescRef = useRef(null);
 
   useEffect(() => {
+    // Only start animations if loading is complete
+    if (isLoading) return;
+
     const ctx = gsap.context(() => {
       // Overlay fade-in
       gsap.fromTo(
@@ -132,7 +135,7 @@ const Hero = () => {
     }, heroRef);
 
     return () => ctx.revert();
-  }, []);
+  }, [isLoading]); // Add isLoading to dependency array
 
   const centerLinks = ["Featured Activities", "Model United Nation", "2025", "UESC"];
 
@@ -147,7 +150,6 @@ const Hero = () => {
         backgroundPosition: "center center",
       }}
     >
-
       {/* Overlay */}
       <div className="overlay absolute inset-0 bg-black/40"></div>
 
