@@ -95,7 +95,7 @@ const Footer = () => {
               </p>
               <div className="mt-6">
                 <a href="mailto:uesc@umn.ac.id" className="block hover:underline">uesc@umn.ac.id</a>
-                <a href="https://www.instagram.com/umn_uesc" target="_blank" rel="noopener noreferrer" className="block hover:underline">@umn_uesc</a>
+                <a href="https://www.instagram.com/uesc_umn" target="_blank" rel="noopener noreferrer" className="block hover:underline">@uesc_umn</a>
               </div>
             </div>
           </div>
@@ -108,7 +108,7 @@ const Footer = () => {
           <p>
             © 2025 UMN English Student Council. All Rights Reserved.
           </p>
-          <a href="https://www.instagram.com/umn_uesc" target="_blank" rel="noopener noreferrer">
+          <a href="https://www.instagram.com/uesc_umn" target="_blank" rel="noopener noreferrer">
             <span className="slot-link relative h-[1.2em] overflow-hidden block cursor-pointer">
               <span className="inner-wrapper block relative">
                 <span className="inner-text block">Instagram</span>

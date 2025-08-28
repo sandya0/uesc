@@ -171,14 +171,16 @@ const Hero = () => {
             </span>
           </div>
           <div className="flex gap-6 text-2xl">
-            <span className="slot-link relative h-[1em] overflow-hidden block cursor-pointer">
-              <span className="inner-wrapper block relative">
-                <span className="inner-text block">Visit Our Instagram</span>
-                <span className="inner-text block absolute top-full">
-                  Visit Our Instagram
+            <a href="https://www.instagram.com/uesc_umn/" target="_blank" rel="noopener noreferrer">
+              <span className="slot-link relative h-[1em] overflow-hidden block cursor-pointer">
+                <span className="inner-wrapper block relative">
+                  <span className="inner-text block">Visit Our Instagram</span>
+                  <span className="inner-text block absolute top-full">
+                    Visit Our Instagram
+                  </span>
                 </span>
               </span>
-            </span>
+            </a>
           </div>
         </div>
 
