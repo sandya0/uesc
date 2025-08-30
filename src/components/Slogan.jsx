@@ -47,32 +47,37 @@ const Slogan = () => {
   }, []);
 
   // Helper to wrap letters into slot structure (this function doesn't need to change)
-  const renderSlotLetters = (text) => {
-    return text.split("").map((char, i) => (
-      <span key={i} className="slot-wrapper relative inline-block h-[1em] overflow-hidden">
-        <span className="inner-wrapper block relative">
-          <span className="block">{char === " " ? "\u00A0" : char}</span>
-          <span className="block absolute top-full">{char === " " ? "\u00A0" : char}</span>
+    const renderSlotWords = (text) => {
+      return text.split(" ").map((word, wi) => (
+        <span key={wi} className="inline-block mr-[0.25em]"> 
+          {word.split("").map((char, i) => (
+            <span
+              key={i}
+              className="slot-wrapper relative inline-block h-[1em] overflow-hidden"
+            >
+              <span className="inner-wrapper block relative">
+                <span className="block">{char}</span>
+                <span className="block absolute top-full">{char}</span>
+              </span>
+            </span>
+          ))}
         </span>
-      </span>
-    ));
-  };
+      ));
+    };
+
   
   return (
     <section
       ref={sectionRef}
       className="min-h-[50vh] w-full bg-gray-100 text-black flex flex-col justify-center p-6 sm:p-12 lg:p-16 overflow-hidden"
     >
-      <div className="flex flex-col">
-        <h2
-          className="text-5xl sm:text-7xl lg:text-9xl font-extrabold uppercase tracking-wide text-left"
-        >
-          {renderSlotLetters("Empowering Voices")}
+      <div className="flex-wrap flex-col">
+        <h2 className="text-4xl sm:text-7xl lg:text-8xl font-extrabold uppercase tracking-wide leading-tight text-left">
+          {renderSlotWords("Empowering Voices")}
         </h2>
-        <h2
-          className="text-5xl sm:text-7xl lg:text-9xl font-extrabold uppercase tracking-wide mt-2 sm:mt-4 text-right"
-        >
-          {renderSlotLetters("Building Confidence")}
+
+        <h2 className="text-4xl sm:text-7xl lg:text-8xl font-extrabold uppercase tracking-wide leading-tight mt-2 sm:mt-4 text-left sm:text-right">
+          {renderSlotWords("Building Confidence")}
         </h2>
       </div>
     </section>

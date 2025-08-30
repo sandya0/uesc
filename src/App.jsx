@@ -34,7 +34,7 @@ const App = () => {
   }, []);
 
   return (
-    <main>
+    <main className="max-w-screen overflow-hidden">
       {isLoading && <LoadingScreen onLoadingComplete={handleLoadingComplete} />}
       <div 
         className={`transition-all duration-1000 ease-out ${

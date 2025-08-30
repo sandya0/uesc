@@ -65,7 +65,7 @@ const Footer = () => {
                 className="w-full h-auto max-h-[300px] sm:max-h-[400px] object-cover"
               />
             </div>
-            <h2 className="text-6xl md:text-7xl lg:text-8xl font-bold">UESC</h2>
+            <h2 className="text-5xl md:text-7xl lg:text-8xl font-bold">UESC</h2>
           </div>
 
           {/* Middle Section: Links */}
@@ -73,7 +73,7 @@ const Footer = () => {
             <ul className="space-y-2 sm:space-y-3">
               {navLinks.map((link) => (
                 <li key={link.name}>
-                  <a href={link.href} className="text-3xl md:text-4xl lg:text-5xl font-bold">
+                  <a href={link.href} className="text-2xl md:text-4xl lg:text-5xl font-bold">
                     <span className="slot-link relative h-[1.1em] overflow-hidden block cursor-pointer">
                       <span className="inner-wrapper block relative">
                         <span className="inner-text block">{link.name}</span>
@@ -109,7 +109,7 @@ const Footer = () => {
             © 2025 UMN English Student Council. All Rights Reserved.
           </p>
           <a href="https://www.instagram.com/uesc_umn" target="_blank" rel="noopener noreferrer">
-            <span className="slot-link relative h-[1.2em] overflow-hidden block cursor-pointer">
+            <span className="slot-link relative h-[1.5em] overflow-hidden block cursor-pointer">
               <span className="inner-wrapper block relative">
                 <span className="inner-text block">Instagram</span>
                 <span className="inner-text block absolute top-full">Instagram</span>

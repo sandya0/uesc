@@ -84,10 +84,10 @@ const Debate = () => {
       <div className="w-full mx-auto">
         {/* Title Section */}
         <div ref={titleRef} className="flex flex-col sm:flex-row justify-between items-start sm:items-center mb-12">
-          <h1 className="text-6xl sm:text-7xl lg:text-8xl font-black uppercase leading-none mb-4 sm:mb-0">
-            Featured <br /> <span className="ml-18">Activities</span>
+          <h1 className="text-5xl sm:text-7xl lg:text-8xl font-black uppercase leading-none mb-4 sm:mb-0">
+            Featured <br /> <span className="ml-0 sm:ml-20">Activities</span>
           </h1>
-          <h2 className="text-6xl sm:text-7xl lg:text-8xl font-black uppercase self-end leading-none">
+          <h2 className="text-5xl sm:text-7xl lg:text-8xl font-black uppercase self-end leading-none">
             Debate
           </h2>
         </div>
@@ -98,7 +98,7 @@ const Debate = () => {
             <img
               src="/images/debate1.JPG"
               alt="Debate Activity 1"
-              className="rounded-lg shadow-xl object-cover w-full h-auto max-h-[600px]"
+              className="rounded-lg shadow-xl object-cover w-full h-[300px] md:h-auto md:max-h-[600px]"
               loading="lazy"
               onLoad={handleImageLoad}
               onError={(e) => {
@@ -112,7 +112,7 @@ const Debate = () => {
             <img
               src="/images/debate2.JPG"
               alt="Debate Activity 2"
-              className="rounded-lg shadow-xl object-cover w-full h-auto max-h-[500px]"
+              className="rounded-lg shadow-xl object-cover w-full h-[300px] md:h-auto md:max-h-[500px]"
               loading="lazy"
               onLoad={handleImageLoad}
               onError={(e) => {

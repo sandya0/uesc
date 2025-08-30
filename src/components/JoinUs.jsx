@@ -72,7 +72,7 @@ const JoinUs = () => {
           <img
             src="/images/join.JPG"
             alt="UESC Group Photo"
-            className="rounded-lg shadow-2xl object-cover w-full max-w-lg h-[530px]"
+            className="rounded-lg shadow-2xl object-cover w-full max-w-lg h-[300px] md:h-auto md:max-h-[500px]"
             onError={(e) => {
               e.target.onerror = null;
               e.target.src =
@@ -85,7 +85,7 @@ const JoinUs = () => {
         <div
           className="flex flex-col items-start text-left justify-center"
         >
-          <div ref={textRef} className="text-3xl sm:text-4xl lg:text-5xl font-bold leading-tight">
+          <div ref={textRef} className="text-xl sm:text-4xl lg:text-5xl font-bold leading-tight">
             {textContent.map((line, index) => (
               <div key={index} className="overflow-hidden">
                 <div className="line">{line}</div>

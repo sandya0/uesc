@@ -79,7 +79,7 @@ const AboutUs = () => {
       <div className="w-full mx-auto">
         <h1
           ref={titleRef}
-          className="text-6xl sm:text-8xl lg:text-9xl font-bold uppercase mb-12 sm:mb-16 text-left w-full"
+          className="text-5xl sm:text-8xl lg:text-9xl font-bold uppercase mb-12 sm:mb-16 text-left w-full"
         >
           About Us
         </h1>
@@ -100,7 +100,7 @@ const AboutUs = () => {
 
           {/* Text Content */}
           <div className="flex flex-col items-start text-left space-y-6">
-            <div ref={textRef} className="text-2xl sm:text-3xl lg:text-4xl leading-relaxed font-bold">
+            <div ref={textRef} className="text-xl sm:text-3xl lg:text-4xl leading-relaxed font-bold">
               {textContent.map((line, index) => (
                 <div key={index} className="overflow-hidden">
                   <div className="line">{line}</div>

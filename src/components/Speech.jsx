@@ -70,7 +70,7 @@ const Speech = () => {
       <div className="w-full mx-auto">
         {/* Title Section */}
         <div ref={titleRef} className="flex flex-col sm:flex-row justify-between items-start sm:items-center mb-12">
-          <h1 className="text-6xl sm:text-7xl lg:text-8xl font-black uppercase leading-none mb-4 sm:mb-0">
+          <h1 className="text-5xl sm:text-7xl lg:text-8xl font-black uppercase leading-none mb-4 sm:mb-0">
             Speech <br />
           </h1>
         </div>
@@ -81,7 +81,7 @@ const Speech = () => {
             <img
               src="/images/speech2.JPG"
               alt="Speech Activity 1"
-              className="rounded-lg shadow-xl object-cover w-full max-w-[600px] h-[600px]"
+              className="rounded-lg shadow-xl object-cover w-full h-[300px] md:h-[600px]"
               onError={(e) => { 
                 e.target.onerror = null;
                 e.target.src =
@@ -93,7 +93,7 @@ const Speech = () => {
             <img
               src="/images/speech1.JPG"
               alt="Speech Activity 2"
-              className="rounded-lg shadow-xl object-cover w-full h-auto max-h-[500px]"
+              className="rounded-lg shadow-xl object-cover w-full h-[300px] md:h-auto md:max-h-[500px]"
               onError={(e) => {
                 e.target.onerror = null;
                 e.target.src =
