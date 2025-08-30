@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 
@@ -9,12 +9,16 @@ const Scrabble = () => {
   const titleRef = useRef(null);
   const imageLeftRef = useRef(null);
   const imageRightRef = useRef(null);
+  const [imagesLoaded, setImagesLoaded] = useState(false);
 
   useEffect(() => {
     const el = sectionRef.current;
     const title = titleRef.current;
     const imageLeft = imageLeftRef.current;
     const imageRight = imageRightRef.current;
+
+    // Only start animations after images are loaded
+    if (!imagesLoaded) return;
 
     const ctx = gsap.context(() => {
       // --- SET INITIAL STATE ---
@@ -59,7 +63,17 @@ const Scrabble = () => {
     }, sectionRef);
 
     return () => ctx.revert(); // Cleanup GSAP animations on component unmount
-  }, []);
+  }, [imagesLoaded]); // Add imagesLoaded to dependency array
+
+  const handleImageLoad = () => {
+    // Check if both images are loaded
+    const leftImg = imageLeftRef.current?.querySelector('img');
+    const rightImg = imageRightRef.current?.querySelector('img');
+    
+    if (leftImg?.complete && rightImg?.complete) {
+      setImagesLoaded(true);
+    }
+  };
 
   return (
     <section
@@ -82,6 +96,8 @@ const Scrabble = () => {
               src="/images/scrabble2.JPG"
               alt="scrabble Activity 1"
               className="rounded-lg shadow-xl object-cover w-full h-[600px]"
+              loading="lazy"
+              onLoad={handleImageLoad}
               onError={(e) => { 
                 e.target.onerror = null;
                 e.target.src =
@@ -94,6 +110,8 @@ const Scrabble = () => {
               src="/images/scrabble1.JPG"
               alt="scrabble Activity 2"
               className="rounded-lg shadow-xl object-cover w-full h-auto max-h-[500px]"
+              loading="lazy"
+              onLoad={handleImageLoad}
               onError={(e) => {
                 e.target.onerror = null;
                 e.target.src =

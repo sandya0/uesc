@@ -9,6 +9,7 @@ import JoinUs from './components/JoinUs'
 import Slogan from './components/Slogan'
 import Footer from './components/Footer'
 import LoadingScreen from './components/LoadingScreen'
+import Lenis from 'lenis'
 
 const App = () => {
   const [isLoading, setIsLoading] = useState(true);
@@ -41,6 +42,7 @@ const App = () => {
         <JoinUs />
         <Slogan />
         <Footer />
+        <Lenis />
       </div>
     </main>
   )

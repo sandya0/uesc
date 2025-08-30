@@ -84,7 +84,7 @@ const AboutUs = () => {
           About Us
         </h1>
 
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-24 items-center">
+        <div className="grid grid-cols-1 lg:grid-cols-[1fr_2fr] gap-12 lg:gap-24 items-center">
           {/* Image */}
           <div ref={imageRef} className="w-full">
             <img
@@ -100,7 +100,7 @@ const AboutUs = () => {
 
           {/* Text Content */}
           <div className="flex flex-col items-start text-left space-y-6">
-            <div ref={textRef} className="text-2xl sm:text-3xl leading-relaxed font-bold">
+            <div ref={textRef} className="text-2xl sm:text-3xl lg:text-4xl leading-relaxed font-bold">
               {textContent.map((line, index) => (
                 <div key={index} className="overflow-hidden">
                   <div className="line">{line}</div>
