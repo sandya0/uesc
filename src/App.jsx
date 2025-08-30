@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import Hero from './components/Hero'
 import AboutUS from './components/AboutUS'
 import Debate from './components/Debate'
@@ -17,11 +17,21 @@ const App = () => {
 
   const handleLoadingComplete = () => {
     setIsLoading(false);
-    // Add a small delay before showing content for smooth transition
     setTimeout(() => {
       setContentVisible(true);
     }, 100);
   };
+
+  useEffect(() => {
+    const lenis = new Lenis();
+
+    function raf(time) {
+      lenis.raf(time);
+      requestAnimationFrame(raf);
+    }
+
+    requestAnimationFrame(raf);
+  }, []);
 
   return (
     <main>
@@ -42,7 +52,6 @@ const App = () => {
         <JoinUs />
         <Slogan />
         <Footer />
-        <Lenis />
       </div>
     </main>
   )

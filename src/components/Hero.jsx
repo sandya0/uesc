@@ -157,24 +157,24 @@ const Hero = ({ isLoading = false }) => {
       <div className="dark-background absolute inset-0 bg-black opacity-0 pointer-events-none"></div>
 
       {/* Content */}
-      <div className="hero-content relative z-10 text-white w-full h-full flex flex-col justify-between p-6">
+      <div className="hero-content relative z-10 text-white w-full h-full flex flex-col justify-between p-4 sm:p-6">
         {/* Top navigation */}
         <div
           ref={topNavRef}
-          className="flex justify-between items-center text-6xl font-bold uppercase"
+          className="flex justify-between items-center text-4xl sm:text-5xl lg:text-6xl font-bold uppercase"
         >
           <span>UESC</span>
-          <div className="flex-1 flex text-2xl justify-center">
-            <span className="slot-link relative h-[1em] overflow-hidden block cursor-pointer">
+          <div className="hidden md:flex flex-1 text-lg sm:text-xl lg:text-2xl justify-center">
+            <span className="slot-link relative h-[1.1em] overflow-hidden block cursor-pointer">
               <span className="inner-wrapper block relative">
                 <span className="inner-text block">What We Do</span>
                 <span className="inner-text block absolute top-full">What We Do</span>
               </span>
             </span>
           </div>
-          <div className="flex gap-6 text-2xl">
+          <div className="flex gap-4 sm:gap-6 text-lg sm:text-xl lg:text-2xl">
             <a href="https://www.instagram.com/uesc_umn/" target="_blank" rel="noopener noreferrer">
-              <span className="slot-link relative h-[1em] overflow-hidden block cursor-pointer">
+              <span className="slot-link relative h-[1.1em] overflow-hidden block cursor-pointer">
                 <span className="inner-wrapper block relative">
                   <span className="inner-text block">Visit Our Instagram</span>
                   <span className="inner-text block absolute top-full">
@@ -189,12 +189,16 @@ const Hero = ({ isLoading = false }) => {
         {/* Center links */}
         <div
           ref={centerLinksRef}
-          className="flex justify-between items-center w-full gap-10 text-2xl font-bold uppercase"
+          className="flex flex-row justify-between items-center w-full gap-4 sm:gap-6 lg:gap-10 text-lg sm:text-xl lg:text-2xl font-bold uppercase"
         >
           {centerLinks.map((text, i) => (
             <span
               key={i}
-              className="relative h-[1em] overflow-hidden block cursor-pointer"
+              className={`relative h-[1.1em] overflow-hidden block cursor-pointer ${
+                text === 'Featured Activities' || text === 'Model United Nation'
+                  ? 'hidden md:block'
+                  : ''
+              }`}
             >
               <span className="inner-wrapper block relative">
                 <span className="inner-text block">{text}</span>
@@ -207,14 +211,14 @@ const Hero = ({ isLoading = false }) => {
         {/* Bottom description */}
         <div
           ref={bottomDescRef}
-          className="flex flex-row justify-between items-end w-full"
+          className="flex flex-col sm:flex-row justify-between items-end w-full gap-4 sm:gap-0"
         >
-          <p className="max-w-2xl font-bold text-3xl leading-relaxed text-left">
+          <p className="max-w-full lg:max-w-2xl font-bold text-xl sm:text-2xl lg:text-3xl leading-relaxed text-left">
             UESC (UMN English Student Council) is an organization that empowers
             UMN students to develop their English skills through engaging
             activities, competitions, and community-building programs.
           </p>
-          <span className="slot-link relative h-[1em] overflow-hidden block cursor-pointer uppercase font-bold text-2xl ml-auto self-end">
+          <span className="slot-link relative h-[1.2em] overflow-hidden block cursor-pointer uppercase font-bold text-lg sm:text-xl lg:text-2xl ml-0 sm:ml-auto self-start sm:self-end mt-4 sm:mt-0">
             <span className="inner-wrapper block relative">
               <span className="inner-text block">Scroll Down</span>
               <span className="inner-text block absolute top-full">Scroll Down</span>
