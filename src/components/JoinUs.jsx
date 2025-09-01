@@ -60,6 +60,16 @@ const JoinUs = () => {
     return () => ctx.revert();
   }, []);
 
+  // Hover animation handlers
+  const handleImageHover = (ref, isEntering) => {
+    gsap.to(ref.current, {
+      scale: isEntering ? 1.05 : 1,
+      y: isEntering ? -10 : 0,
+      duration: 0.4,
+      ease: "power2.out",
+    });
+  };
+
   return (
     <section
       id="contact"
@@ -68,9 +78,14 @@ const JoinUs = () => {
     >
       <div className="container mx-auto grid grid-cols-1 lg:grid-cols-[1fr_2fr] gap-12 items-start">
         {/* Image Content - Now on the left for desktop */}
-        <div ref={imageRef} className="w-full flex justify-start items-start">
+        <div 
+          ref={imageRef} 
+          className="w-full flex justify-start items-start cursor-pointer"
+          onMouseEnter={() => handleImageHover(imageRef, true)}
+          onMouseLeave={() => handleImageHover(imageRef, false)}
+        >
           <img
-            src="/images/join.JPG"
+            src="/images/join.jpg"
             alt="UESC Group Photo"
             className="rounded-lg shadow-2xl object-cover w-full max-w-lg h-[300px] md:h-auto md:max-h-[500px]"
             onError={(e) => {
@@ -83,9 +98,10 @@ const JoinUs = () => {
 
         {/* Text Content - Now on the right for desktop */}
         <div
+          ref={textRef}
           className="flex flex-col items-start text-left justify-center"
         >
-          <div ref={textRef} className="text-xl sm:text-4xl lg:text-5xl font-bold leading-tight">
+          <div className="text-xl sm:text-4xl lg:text-5xl font-bold leading-tight">
             {textContent.map((line, index) => (
               <div key={index} className="overflow-hidden">
                 <div className="line">{line}</div>

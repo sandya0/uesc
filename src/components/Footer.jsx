@@ -60,7 +60,7 @@ const Footer = () => {
           <div className="lg:col-span-1">
             <div className="w-full mb-8 overflow-hidden rounded-lg">
               <img 
-                src="/images/footer.JPG"
+                src="/images/footer.jpg"
                 alt="UESC Event" 
                 className="w-full h-auto max-h-[300px] sm:max-h-[400px] object-cover"
               />

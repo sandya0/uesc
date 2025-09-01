@@ -1,15 +1,16 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, Suspense } from 'react'
 import Hero from './components/Hero'
 import AboutUS from './components/AboutUS'
-import Debate from './components/Debate'
-import Scrabble from './components/Scrabble'
-import MUN from './components/MUN'
-import Speech from './components/Speech'
-import JoinUs from './components/JoinUs'
-import Slogan from './components/Slogan'
-import Footer from './components/Footer'
 import LoadingScreen from './components/LoadingScreen'
-import Lenis from 'lenis'
+import ReactLenis from "lenis/react";
+
+const Debate = React.lazy(() => import('./components/Debate'));
+const Scrabble = React.lazy(() => import('./components/Scrabble'));
+const MUN = React.lazy(() => import('./components/MUN'));
+const Speech = React.lazy(() => import('./components/Speech'));
+const JoinUs = React.lazy(() => import('./components/JoinUs'));
+const Slogan = React.lazy(() => import('./components/Slogan'));
+const Footer = React.lazy(() => import('./components/Footer'));
 
 const App = () => {
   const [isLoading, setIsLoading] = useState(true);
@@ -22,19 +23,8 @@ const App = () => {
     }, 100);
   };
 
-  useEffect(() => {
-    const lenis = new Lenis();
-
-    function raf(time) {
-      lenis.raf(time);
-      requestAnimationFrame(raf);
-    }
-
-    requestAnimationFrame(raf);
-  }, []);
-
   return (
-    <main className="max-w-screen overflow-hidden">
+    <ReactLenis root>
       {isLoading && <LoadingScreen onLoadingComplete={handleLoadingComplete} />}
       <div 
         className={`transition-all duration-1000 ease-out ${
@@ -45,15 +35,17 @@ const App = () => {
       >
         <Hero isLoading={isLoading} />
         <AboutUS />
-        <Debate />
-        <Scrabble />
-        <MUN />
-        <Speech />
-        <JoinUs />
-        <Slogan />
-        <Footer />
+        <Suspense fallback={<div>Loading...</div>}>
+          <Debate />
+          <Scrabble />
+          <MUN />
+          <Speech />
+          <JoinUs />
+          <Slogan />
+          <Footer />
+        </Suspense>
       </div>
-    </main>
+    </ReactLenis>
   )
 }
 

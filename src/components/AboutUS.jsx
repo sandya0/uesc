@@ -70,6 +70,16 @@ const AboutUs = () => {
     return () => ctx.revert();
   }, []);
 
+  // Hover animation handlers
+  const handleImageHover = (ref, isEntering) => {
+    gsap.to(ref.current, {
+      scale: isEntering ? 1.05 : 1,
+      y: isEntering ? -10 : 0,
+      duration: 0.4,
+      ease: "power2.out",
+    });
+  };
+
   return (
     <section
       id="about-us"
@@ -86,9 +96,14 @@ const AboutUs = () => {
 
         <div className="grid grid-cols-1 lg:grid-cols-[1fr_2fr] gap-12 lg:gap-24 items-center">
           {/* Image */}
-          <div ref={imageRef} className="w-full">
+          <div 
+            ref={imageRef} 
+            className="w-full cursor-pointer"
+            onMouseEnter={() => handleImageHover(imageRef, true)}
+            onMouseLeave={() => handleImageHover(imageRef, false)}
+          >
             <img
-              src="/images/aboutus.JPG"
+              src="/images/aboutus.jpg"
               alt="UESC Event"
               className="rounded-lg shadow-2xl object-cover w-full h-auto"
               onError={(e) => {
@@ -99,8 +114,11 @@ const AboutUs = () => {
           </div>
 
           {/* Text Content */}
-          <div className="flex flex-col items-start text-left space-y-6">
-            <div ref={textRef} className="text-xl sm:text-3xl lg:text-4xl leading-relaxed font-bold">
+          <div 
+            ref={textRef}
+            className="flex flex-col items-start text-left space-y-6"
+          >
+            <div className="text-xl sm:text-3xl lg:text-4xl leading-relaxed font-bold">
               {textContent.map((line, index) => (
                 <div key={index} className="overflow-hidden">
                   <div className="line">{line}</div>
